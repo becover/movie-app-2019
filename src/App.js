@@ -4,7 +4,7 @@ import Movie from "./components/Movie";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  const [isLoaing, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getMovieList = async () => {
@@ -20,12 +20,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    movieList !== [] && setIsLoading(false);
+    movieList.length !== 0 && setIsLoading(false);
   }, [movieList]);
 
   return (
-    <div>
-      {isLoaing
+    <section>
+      {isLoading
         ? `loading...`
         : movieList.map(movie => (
             <Movie
@@ -36,7 +36,7 @@ function App() {
               poster={movie.medium_cover_image}
             />
           ))}
-    </div>
+    </section>
   );
 }
 
