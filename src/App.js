@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Movie from "./components/Movie";
 
 function App() {
+  const [movieList, setMovieList] = useState([]);
+  const [isLoaing, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getMovieList = async () => {
+      const {
+        data: {
+          data: { movies }
+        }
+      } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+      console.log(movies);
+      setMovieList(movies);
+    };
+    getMovieList();
+  }, []);
+
+  useEffect(() => {
+    movieList !== [] && setIsLoading(false);
+  }, [movieList]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoaing
+        ? `loading...`
+        : movieList.map(movie => (
+            <Movie
+              key={movie.id}
+              year={movie.year}
+              title={movie.title}
+              summary={movie.summary}
+              poster={movie.medium_cover_image}
+            />
+          ))}
     </div>
   );
 }
