@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Detail from "./routes/Detail";
 import { Link, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -27,19 +28,9 @@ function App() {
 
   return (
     <>
-      <ul>
+      <ul className="nav">
         <li>
-          <Link
-            to={{
-              pathname: "/",
-              state: {
-                movieList,
-                isLoading
-              }
-            }}
-          >
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
@@ -48,7 +39,9 @@ function App() {
       <Route
         path="/"
         exact
-        render={(movieList)=><Home state={movieList} />}
+        render={() =>
+          isLoading ? `Now loading...` : <Home state={movieList} />
+        }
       />
       <Route path="/about" component={About} />
       <Route path="/movie/:id" component={Detail} />
