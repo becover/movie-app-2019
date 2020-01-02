@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "./Movie.css";
 
-const Movie = ({ id, year, title, summary, poster }) => {
+const Movie = ({ id, year, title, summary, poster, genres }) => {
   return (
     <Link
       to={{
@@ -11,8 +12,10 @@ const Movie = ({ id, year, title, summary, poster }) => {
         year,
         title,
         summary,
-        poster
+        poster,
+        genres,
       }}
+      className="movie__link"
     >
       <div className="movie__contain">
         <div className="movie__left">
@@ -24,9 +27,9 @@ const Movie = ({ id, year, title, summary, poster }) => {
           />
         </div>
         <div className="movie__right">
-          <h2 className="movie__right-title">{title}</h2>
-          <h3 className="movie__right-year">{year}</h3>
-          <p className="movie__right-summary">{summary}</p>
+          <h2 className="movie__right-title">{title} <span className="movie__right-year">{year}</span></h2>
+          <ul className="movie__right-genre">{genres.map((genre,index)=><li key={index}>{genre}</li>)}</ul>
+          <p className="movie__right-summary">{summary.slice(0.150)}...</p>
         </div>
       </div>
     </Link>

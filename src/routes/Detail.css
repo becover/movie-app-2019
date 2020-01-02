@@ -1,0 +1,43 @@
+.detail__backgound {
+  overflow: hidden;
+  height: 100%;
+  padding: 150px 100px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.detail__img {
+  float: left;
+  margin-right: 50px;
+}
+
+.detail__img img {
+  width: 340px;
+}
+
+.detail__title {
+  font-size: 44px;
+  margin: 15px 0;
+}
+
+.datail__year {
+  margin-bottom: 20px;
+}
+
+.detail__genre {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.detail__genre li:after {
+  content: " /";
+  margin-right: 6px;
+}
+
+.detail__genre li:last-of-type:after {
+  content: "";
+  margin-right: 0;
+}
+
+.detail__summary {
+  font-size: 20px;
+}
