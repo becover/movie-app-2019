@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Movie from "./components/Movie";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Detail from "./routes/Detail";
+import { Link, Route } from "react-router-dom";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -13,7 +16,6 @@ function App() {
           data: { movies }
         }
       } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
-      console.log(movies);
       setMovieList(movies);
     };
     getMovieList();
@@ -24,19 +26,33 @@ function App() {
   }, [movieList]);
 
   return (
-    <section>
-      {isLoading
-        ? `loading...`
-        : movieList.map(movie => (
-            <Movie
-              key={movie.id}
-              year={movie.year}
-              title={movie.title}
-              summary={movie.summary}
-              poster={movie.medium_cover_image}
-            />
-          ))}
-    </section>
+    <>
+      <ul>
+        <li>
+          <Link
+            to={{
+              pathname: "/",
+              state: {
+                movieList,
+                isLoading
+              }
+            }}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+      <Route
+        path="/"
+        exact
+        render={(movieList)=><Home state={movieList} />}
+      />
+      <Route path="/about" component={About} />
+      <Route path="/movie/:id" component={Detail} />
+    </>
   );
 }
 
