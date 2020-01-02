@@ -1,0 +1,28 @@
+.about__contain {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:50%;
+  max-width: 600px;
+  padding:25px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+  color:#333;
+  text-align: center;
+}
+
+.about__contain h2 {
+  font-size:20px;
+  margin: 15px 0 40px;
+}
+
+.about__contain h3 {
+  font-size:18px;
+  margin-bottom: 20px;
+}
+
+.about__contain ul li {
+  margin:10px 0;
+}
