@@ -40,7 +40,11 @@ function App() {
         path="/"
         exact
         render={() =>
-          isLoading ? `Now loading...` : <Home state={movieList} />
+          isLoading ? (
+            <p className="loading">Now loading...</p>
+          ) : (
+            <Home state={movieList} />
+          )
         }
       />
       <Route path="/about" component={About} />
