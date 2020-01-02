@@ -1,0 +1,67 @@
+.movie__link {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie__contain {
+  display: flex;
+  position: relative;
+  width: 70%;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: white;
+  border-radius: 2px;
+  transition: ease-in 0.4s;
+}
+
+.movie__left {
+  position: relative;
+  top: -40px;
+  margin-right: 20px;
+}
+
+.movie__left .movie__left-poster {
+  width: 150px;
+}
+.movie__right .movie__right-title {
+  transition: ease-in 0.4s;
+
+  display: inline-block;
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(238, 130, 238);
+}
+
+.movie__right .movie__right-year {
+  position: relative;
+  top: -4px;
+  right: 0;
+  padding: 2px 7px 3px 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  letter-spacing: -1px;
+  border-radius: 20px;
+}
+.movie__right .movie__right-genre {
+  display: flex;
+  margin-bottom: 10px;
+}
+.movie__right .movie__right-genre li:after {
+  content: ",";
+  margin-right: 6px;
+}
+
+.movie__right .movie__right-genre li:last-of-type:after {
+  content: "";
+  margin-right: 0;
+}
+
+.movie__link:hover .movie__contain {
+  box-shadow: 0 10px 20px rgba(32, 19, 53, 0.3),
+    0 15px 20px rgba(32, 19, 53, 0.2);
+}
+
+.movie__link:hover .movie__right-title {
+  background-color: rgba(146, 105, 241, 0.76);
+}
