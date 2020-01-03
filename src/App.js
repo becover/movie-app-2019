@@ -37,7 +37,7 @@ function App() {
         </li>
       </ul>
       <Route
-        path="/"
+        path="/movie-app-2019/"
         exact
         render={() =>
           isLoading ? (
