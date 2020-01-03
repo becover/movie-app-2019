@@ -30,10 +30,10 @@ function App() {
     <>
       <ul className="nav">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/movie-app-2019/">Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/movie-app-2019/about">About</Link>
         </li>
       </ul>
       <Route
@@ -47,8 +47,8 @@ function App() {
           )
         }
       />
-      <Route path="/about" component={About} />
-      <Route path="/movie/:id" component={Detail} />
+      <Route path="/movie-app-2019/about" component={About} />
+      <Route path="/movie-app-2019/movie/:id" component={Detail} />
     </>
   );
 }

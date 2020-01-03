@@ -4,7 +4,7 @@ import "./Detail.css";
 const Detail = ({ history, location }) => {
   const { year, title, summary, poster, genres } = location;
   useEffect(() => {
-    if (location.title === undefined) history.push("/");
+    if (location.title === undefined) history.push("/movie-app-2019/");
   }, [location, history]);
   return (
     <div className="detail__backgound">

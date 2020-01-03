@@ -7,7 +7,7 @@ const Movie = ({ id, year, title, summary, poster, genres }) => {
   return (
     <Link
       to={{
-        pathname:`/movie/${id}`,
+        pathname:`/movie-app-2019/movie/${id}`,
         id,
         year,
         title,
